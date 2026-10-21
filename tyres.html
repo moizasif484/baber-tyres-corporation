@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyre Catalog | Baber Tyres Corporation — Karachi</title>
+<meta name="description" content="Search and filter our full tyre catalog by brand, vehicle type and size. Car, SUV, truck, forklift and off-road tyres in stock in Karachi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">BT</span>
+      <span class="brand-text">
+        <span class="name">Baber Tyres Corporation</span>
+        <span class="tag">Since 1990 &middot; Karachi</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tyres.html" class="active">Tyres</a>
+      <a href="brands.html">Brands</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <span class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0317-4724400
+      </span>
+      <a href="https://wa.me/923174724400" class="btn btn-primary btn-sm" target="_blank">WhatsApp Us</a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="tyres.html" class="active">Tyres</a>
+    <a href="brands.html">Brands</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/923174724400" class="btn btn-whatsapp btn-block">Chat on WhatsApp</a>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Tyres</div>
+    <span class="eyebrow">Full Catalog</span>
+    <h1>Find Your Exact Tyre</h1>
+    <p>Search by size or brand, or use the filters below. Tap any tyre to view details and enquire instantly on WhatsApp.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="catalog-toolbar">
+      <div class="search-row">
+        <input type="text" id="search-input" placeholder="Search by size (e.g. 185/65R15) or brand (e.g. Michelin)...">
+        <button id="search-btn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          Search
+        </button>
+      </div>
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="filter-brand">Brand</label>
+          <select id="filter-brand">
+            <option value="">All Brands</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-vehicle">Vehicle Type</label>
+          <select id="filter-vehicle">
+            <option value="">All Types</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-size">Size</label>
+          <select id="filter-size">
+            <option value="">All Sizes</option>
+          </select>
+        </div>
+        <span class="filter-clear" id="clear-filters">Clear all filters</span>
+      </div>
+    </div>
+
+    <div class="results-meta">
+      <span id="results-count">Showing all tyres</span>
+      <span>Can't find your size? <a href="https://wa.me/923174724400?text=Hello%20Baber%20Tyres%2C%20I%27m%20looking%20for%20a%20specific%20tyre%20size%2Fbrand%20not%20listed%20on%20your%20website." target="_blank" style="color:var(--navy);font-weight:600;text-decoration:underline;">Ask us on WhatsApp</a></span>
+    </div>
+
+    <div class="product-grid" id="product-grid"></div>
+
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+      <h3>No tyres match your search</h3>
+      <p>Try adjusting your filters, or message us directly — we can likely source it for you.</p>
+      <div style="margin-top:20px;">
+        <a href="https://wa.me/923174724400?text=Hello%20Baber%20Tyres%2C%20I%20couldn%27t%20find%20the%20tyre%20size%2Fbrand%20I%20need%20on%20your%20website.%20Can%20you%20help%3F" target="_blank" class="btn btn-whatsapp btn-sm">Ask on WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">BT</span>
+          <span class="brand-text">
+            <span class="name">Baber Tyres Corporation</span>
+            <span class="tag">Since 1990 &middot; Karachi</span>
+          </span>
+        </a>
+        <p>Direct importer and dealer of premium tyre brands, serving Karachi with genuine stock, expert fitting and reliable service since 1990.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tyres.html">Tyres Catalog</a></li>
+          <li><a href="brands.html">Our Brands</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Vehicle Types</h4>
+        <ul>
+          <li><a href="tyres.html?vehicleType=Car">Car Tyres</a></li>
+          <li><a href="tyres.html?vehicleType=SUV%2F4x4">SUV / 4x4</a></li>
+          <li><a href="tyres.html?vehicleType=Truck%2FCommercial">Truck / Commercial</a></li>
+          <li><a href="tyres.html?vehicleType=Lifter%2FForklift">Lifter / Forklift</a></li>
+          <li><a href="tyres.html?vehicleType=Off-Road">Off-Road</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> M.A. Jinnah Road, Karachi, Pakistan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0317-4724400</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat: 10AM–7PM, Sun Closed</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Baber Tyres Corporation. All rights reserved.</span>
+      <span>Importer &amp; Dealer of Premium Tyres in Karachi since 1990</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/923174724400?text=Hello%20Baber%20Tyres%2C%20I%27d%20like%20to%20enquire%20about%20tyres." target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.004 3C9.374 3 4 8.374 4 15.004c0 2.33.65 4.51 1.78 6.37L4 29l7.84-1.74a11.9 11.9 0 0 0 4.16.74h.004C22.634 28 28 22.626 28 15.996 28 9.366 22.634 3 16.004 3zm6.93 16.95c-.3.84-1.74 1.65-2.4 1.74-.61.09-1.39.13-2.24-.14-.52-.16-1.18-.38-2.03-.75-3.57-1.54-5.9-5.14-6.08-5.38-.18-.24-1.46-1.94-1.46-3.7 0-1.76.93-2.63 1.26-2.99.33-.36.72-.45.96-.45.24 0 .48 0 .69.01.22.01.52-.08.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.37-.16.73.21.36.95 1.56 2.04 2.53 1.41 1.25 2.6 1.64 2.97 1.82.37.18.59.15.81-.09.22-.24.93-1.08 1.18-1.45.25-.37.5-.31.84-.19.34.12 2.15 1.01 2.52 1.2.37.18.61.27.7.42.09.15.09.86-.21 1.7z"/></svg>
+</a>
+
+<!-- Product Detail Modal -->
+<div class="pd-overlay" id="pd-overlay">
+  <div class="pd-modal">
+    <button class="pd-close" id="pd-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="pd-media"><img id="pd-img" src="" alt=""></div>
+    <div class="pd-body">
+      <span class="product-brand" id="pd-brand"></span>
+      <h2 id="pd-size"></h2>
+      <div class="pd-pattern" id="pd-pattern"></div>
+      <div class="pd-specs">
+        <div class="pd-spec"><span class="k">Vehicle Type</span><span class="v" id="pd-vehicle"></span></div>
+        <div class="pd-spec"><span class="k">Stock Status</span><span class="v" id="pd-stock"></span></div>
+      </div>
+      <a href="#" id="pd-wa" target="_blank" class="btn btn-whatsapp btn-block">Enquire on WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/tyres-data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>
